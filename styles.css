@@ -1,22 +1,35 @@
 * {
   margin: 0;
 }
+:root {
+  --barBG : rgb(100,100,100);
+  --barWarning : rgb(200, 170, 20);
+  --barDanger : rgb(180, 20, 20);
+  --barStart : 0%;
+  --barEnd : 0%;
+  --barProgress: 0%;
+  --eventNow-colour : transparent;
+  --eventNext-colour : transparent;
+  --publicEventNow-colour : transparent;
+  --publicEventNext-colour : transparent;
+}
 
 body {
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f2f2f2;
+  background-color: #2f2f2f;
+  color: #f2f2f2;
 }
 
 h1 {
   display: block;
-  background-color: yellow;
-  color: red;
+  background-color: black;
+  color: #c00c0c;
   padding: 8px;
 }
 
 #timestamp {
-  color: red;
+  color: #e00d0d;
 }
 
 .description {
@@ -29,19 +42,57 @@ h1 {
 }
 
 .card {
-  border: 1px solid pink;
+  border: 1px solid black;
   margin: 8px;
   padding: 8px;
-  background-color: white;
+  background-color: #202020;
 }
 
 .title,
 .description {
   display: inline-block;
   padding-right: 2em;
-  color: gray;
+  color: white;
 }
 
 code {
-  font-size: 12px;
+  color: #0cc00c;
+  font-size: 14px;
+  padding-left: 0.5em;
+}
+#timer-bar {
+  position: relative;
+  height:10px;
+  width: 60%;
+  overflow: none;
+  border: 2px solid rgb(150,150,150);
+  border-radius: 5px;
+  background: var(--barBG);
+}
+#timer-bar::before {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background: linear-gradient(270deg, var(--barDanger) 0%, var(--barDanger) var(--barEnd), var(--barWarning) var(--barEnd), var(--barWarning) var(--barStart), var(--barBG) var(--barStart), var(--barBG) 100%);
+  content: '';
+}
+#timer-bar::after {
+  position: absolute;
+  background: rgba(0,0,0,0.6);
+  width: var(--barProgress);
+  height: 100%;
+  content: '';
+}
+
+#eventNow-colour {
+  background: var(--eventNow-colour);
+}
+#eventNext-colour {
+  background: var(--eventNext-colour);
+}
+#publicEventNow-colour {
+  background: var(--publicEventNow-colour);
+}
+#publicEventNext-colour {
+  background: var(--publicEventNext-colour);
 }

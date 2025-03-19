@@ -9,139 +9,270 @@
   </head>
 
   <body>
-    <h1>ONTIME VIEWER TEMPLATE</h1>
+    <h1>Ontime Viewer Template</h1>
     <div class="container">
       <div class="card">
-        <span class="title">Running timer</span>
-        <code id="current">-</code>
-        <p>
-          <span class="title">Last message received</span>
-          <span id="timestamp">-</span>
-        </p>
-        <p>
-          <span class="title">Help? See docs</span>
-          <a
-            href="https://cpvalente.gitbook.io/ontime/control-and-feedback/websocket-api"
-            target="_blank"
-            >https://cpvalente.gitbook.io/ontime/control-and-feedback/websocket-api</a
-          >
-        </p>
+        Using the following line in your html document together with the <a href="app-ws.js">app-ws.js</a> file itself is all you need to get started:<br>
+        <code>&lt;script src='./app-ws.js'&gt;&lt;/script&gt;</code><br>
+        <br>
+        <span class="title">Example:</span>
+        <a href="./basic.html">basic timer</a><br>
+        <span class="title">Help? See docs :</span> 
+        <a href="https://docs.getontime.no/api/protocols/websockets/" target="_blank">https://docs.getontime.no/api/protocols/websockets/</a>
+        <br><br>
+
+        When was last message received: <span id="timestamp">-</span>
+
       </div>
 
       <details class="card" open>
         <summary>
-          Timer
+          timer-
           <div>
-            <span class="description">Description</span>Object with all timer
-            values
+            <span class="description">tagID : value - Description</span>All the running timer data
           </div>
         </summary>
-        <code id="timer">-</code>
+        timer-addedTime : <code id="timer-addedTime">-</code><br>
+        timer-current :<code id="timer-current">-</code><br>
+        timer-duration : <code id="timer-duration">-</code><br>
+        timer-elapsed : <code id="timer-elapsed">-</code><br>
+        timer-expectedFinish : <code id="timer-expectedFinish">-</code><br>
+        timer-finishedAt : <code id="timer-finishedAt">-</code><br>
+        timer-phase : <code id="timer-phase">-</code><br>
+        timer-playback : <code id="timer-playback">-</code><br>
+        timer-secondaryTimer : <code id="timer-secondaryTimer">-</code><br>
+        timer-startedAt : <code id="timer-startedAt">-</code><br>
+        timer-bar : <hr id="timer-bar" /><br>
+
       </details>
 
       <details class="card" open>
         <summary>
-          Playback
+          eventNow-
           <div>
-            <span class="description">Description</span>State of Ontime playback
+            <span class="description">tagID : value - Description</span>All data concerning the currently active event
           </div>
         </summary>
-        <code id="playback">-</code>
+        eventNow-id : <code id="eventNow-id">-</code><br>
+        eventNow-type : <code id="eventNow-type">-</code><br>
+        eventNow-title : <code id="eventNow-title">-</code><br>
+        eventNow-timeStart : <code id="eventNow-timeStart">-</code><br>
+        eventNow-timeEnd : <code id="eventNow-timeEnd">-</code><br>
+        eventNow-duration : <code id="eventNow-duration">-</code><br>
+        eventNow-timeStrategy : <code id="eventNow-timeStrategy">-</code><br>
+        eventNow-linkStart : <code id="eventNow-linkStart">-</code><br>
+        eventNow-endAction : <code id="eventNow-endAction">-</code><br>
+        eventNow-timerType : <code id="eventNow-timerType">-</code><br>
+        eventNow-countToEnd : <input type="checkbox" id="eventNow-countToEnd"><br>
+        eventNow-isPublic : <input type="checkbox" id="eventNow-isPublic"><br>
+        eventNow-skip : <input type="checkbox" id="eventNow-skip"><br>
+        eventNow-note : <code id="eventNow-note">-</code><br>
+        eventNow-colour : <code id="eventNow-colour">-</code><br>
+        eventNow-delay : <code id="eventNow-delay">-</code><br>
+        eventNow-dayOffset : <code id="eventNow-dayOffset">-</code><br>
+        eventNow-gap : <code id="eventNow-gap">-</code><br>
+        eventNow-cue : <code id="eventNow-cue">-</code><br>
+        eventNow-revision : <code id="eventNow-revision">-</code><br>
+        eventNow-timeWarning : <code id="eventNow-timeWarning">-</code><br>
+        eventNow-timeDanger : <code id="eventNow-timeDanger">-</code><br>
+        eventNow-custom : <code id="eventNow-custom">-</code><br>
+      </details>
+      <details class="card" open>
+        <summary>
+          eventNext-
+          <div>
+            <span class="description">tagID : value - Description</span>Data regarding the next event
+          </div>
+        </summary>
+        eventNext-id : <code id="eventNext-id">-</code><br>
+        eventNext-type : <code id="eventNext-type">-</code><br>
+        eventNext-title : <code id="eventNext-title">-</code><br>
+        eventNext-timeStart : <code id="eventNext-timeStart">-</code><br>
+        eventNext-timeEnd : <code id="eventNext-timeEnd">-</code><br>
+        eventNext-duration : <code id="eventNext-duration">-</code><br>
+        eventNext-timeStrategy : <code id="eventNext-timeStrategy">-</code><br>
+        eventNext-linkStart : <code id="eventNext-linkStart">-</code><br>
+        eventNext-endAction : <code id="eventNext-endAction">-</code><br>
+        eventNext-timerType : <code id="eventNext-timerType">-</code><br>
+        eventNext-countToEnd : <input type="checkbox" id="eventNext-countToEnd"><br>
+        eventNext-isPublic : <input type="checkbox" id="eventNext-isPublic"><br>
+        eventNext-skip : <input type="checkbox" id="eventNext-skip"><br>
+        eventNext-note : <code id="eventNext-note">-</code><br>
+        eventNext-colour : <code id="eventNext-colour">-</code><br>
+        eventNext-delay : <code id="eventNext-delay">-</code><br>
+        eventNext-dayOffset : <code id="eventNext-dayOffset">-</code><br>
+        eventNext-gap : <code id="eventNext-gap">-</code><br>
+        eventNext-cue : <code id="eventNext-cue">-</code><br>
+        eventNext-revision : <code id="eventNext-revision">-</code><br>
+        eventNext-timeWarning : <code id="eventNext-timeWarning">-</code><br>
+        eventNext-timeDanger : <code id="eventNext-timeDanger">-</code><br>
+        eventNext-custom : <code id="eventNext-custom">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          Messages timer
+          publicEventNow-
           <div>
-            <span class="description">Description</span>Private messages to
-            stage timer screens
+            <span class="description">tagID : value - Description</span>Data in the current public event, if there is one
           </div>
         </summary>
-        <code id="messages-timer">-</code>
+        publicEventNow-id : <code id="publicEventNow-id">-</code><br>
+        publicEventNow-type : <code id="publicEventNow-type">-</code><br>
+        publicEventNow-title : <code id="publicEventNow-title">-</code><br>
+        publicEventNow-timeStart : <code id="publicEventNow-timeStart">-</code><br>
+        publicEventNow-timeEnd : <code id="publicEventNow-timeEnd">-</code><br>
+        publicEventNow-duration : <code id="publicEventNow-duration">-</code><br>
+        publicEventNow-timeStrategy : <code id="publicEventNow-timeStrategy">-</code><br>
+        publicEventNow-linkStart : <code id="publicEventNow-linkStart">-</code><br>
+        publicEventNow-endAction : <code id="publicEventNow-endAction">-</code><br>
+        publicEventNow-timerType : <code id="publicEventNow-timerType">-</code><br>
+        publicEventNow-countToEnd : <input type="checkbox" id="publicEventNow-countToEnd"><br>
+        publicEventNow-isPublic : <input type="checkbox" id="publicEventNow-isPublic"><br>
+        publicEventNow-skip : <input type="checkbox" id="publicEventNow-skip"><br>
+        publicEventNow-note : <code id="publicEventNow-note">-</code><br>
+        publicEventNow-colour : <code id="publicEventNow-colour">-</code><br>
+        publicEventNow-delay : <code id="publicEventNow-delay">-</code><br>
+        publicEventNow-dayOffset : <code id="publicEventNow-dayOffset">-</code><br>
+        publicEventNow-gap : <code id="publicEventNow-gap">-</code><br>
+        publicEventNow-cue : <code id="publicEventNow-cue">-</code><br>
+        publicEventNow-revision : <code id="publicEventNow-revision">-</code><br>
+        publicEventNow-timeWarning : <code id="publicEventNow-timeWarning">-</code><br>
+        publicEventNow-timeDanger : <code id="publicEventNow-timeDanger">-</code><br>
+        publicEventNow-custom : <code id="publicEventNow-custom">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          Messages public
+          publicEventNext-
           <div>
-            <span class="description">Description</span>Private messages to
-            public screens
+            <span class="description">tagID : value - Description</span>Data in the next public event, if there is one
           </div>
         </summary>
-        <code id="messages-public">-</code>
+        publicEventNext-id : <code id="publicEventNext-id">-</code><br>
+        publicEventNext-type : <code id="publicEventNext-type">-</code><br>
+        publicEventNext-title : <code id="publicEventNext-title">-</code><br>
+        publicEventNext-timeStart : <code id="publicEventNext-timeStart">-</code><br>
+        publicEventNext-timeEnd : <code id="publicEventNext-timeEnd">-</code><br>
+        publicEventNext-duration : <code id="publicEventNext-duration">-</code><br>
+        publicEventNext-timeStrategy : <code id="publicEventNext-timeStrategy">-</code><br>
+        publicEventNext-linkStart : <code id="publicEventNext-linkStart">-</code><br>
+        publicEventNext-endAction : <code id="publicEventNext-endAction">-</code><br>
+        publicEventNext-timerType : <code id="publicEventNext-timerType">-</code><br>
+        publicEventNext-countToEnd : <input type="checkbox" id="publicEventNext-countToEnd"><br>
+        publicEventNext-isPublic : <input type="checkbox" id="publicEventNext-isPublic"><br>
+        publicEventNext-skip : <input type="checkbox" id="publicEventNext-skip"><br>
+        publicEventNext-note : <code id="publicEventNext-note">-</code><br>
+        publicEventNext-colour : <code id="publicEventNext-colour">-</code><br>
+        publicEventNext-delay : <code id="publicEventNext-delay">-</code><br>
+        publicEventNext-dayOffset : <code id="publicEventNext-dayOffset">-</code><br>
+        publicEventNext-gap : <code id="publicEventNext-gap">-</code><br>
+        publicEventNext-cue : <code id="publicEventNext-cue">-</code><br>
+        publicEventNext-revision : <code id="publicEventNext-revision">-</code><br>
+        publicEventNext-timeWarning : <code id="publicEventNext-timeWarning">-</code><br>
+        publicEventNext-timeDanger : <code id="publicEventNext-timeDanger">-</code><br>
+        publicEventNext-custom : <code id="publicEventNext-custom">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          Lower third message
+          client-
           <div>
-            <span class="description">Description</span>Private messages to
-            lower thirds
+            <span class="description">tagID : value - Description</span>What is this clients name and ID within Ontime
           </div>
         </summary>
-        <code id="messages-lower">-</code>
+        client-clientName : <code id="client-clientName">-</code><br>
+        client-clientId : <code id="client-clientId">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          On Air
+          log-
           <div>
-            <span class="description">Description</span>Whether On Air toggle is
-            on
+            <span class="description">tagID : value - Description</span>Last recieved log
           </div>
         </summary>
-        <code id="onAir">-</code>
+        log-id : <code id="log-id">-</code><br>
+        log-level : <code id="log-level">-</code><br>
+        log-origin : <code id="log-origin">-</code><br>
+        log-text : <code id="log-text">-</code><br>
+        log-time : <code id="log-time">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          Loaded
+          onAir-
           <div>
-            <span class="description">Description</span>Information on loaded
-            event and rundown
+            <span class="description">tagID : value - Description</span>Whether On Air toggle is on
           </div>
         </summary>
-        <code id="loaded">-</code>
+        onAir-onAir <input type="checkbox" id="onAir-onAir">
       </details>
 
       <details class="card" open>
         <summary>
-          Event now
+          clock-
           <div>
-            <span class="description">Description</span>Currently loaded event
+            <span class="description">tagID : value - Description</span>Current Time within OnTime
           </div>
         </summary>
-        <code id="event-now">-</code>
+        clock-clock : <code id="clock-clock">-</code>
+      </details>
+
+     <details class="card" open>
+        <summary>
+          message-
+          <div>
+            <span class="description">tagID : value - Description</span>User messages. If/how they shall be shown
+          </div>
+        </summary>
+        message-text : <code id="message-text">-</code><br>
+        message-visible <input type="checkbox" id="message-visible"><br>
+        message-blink <input type="checkbox" id="message-blink"><br>
+        message-blackout <input type="checkbox" id="message-blackout"><br>
+        message-secondarySource : <code id="message-secondarySource">-</code><br>
+        message-external : <code id="message-external">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          Event next
-          <div><span class="description">Description</span>Next event</div>
+          runtime-
+          <div>
+            <span class="description">tagID : value - Description</span>event and rundown
+          </div>
         </summary>
-        <code id="event-next">-</code>
+        runtime-selectedEventIndex : <code id="runtime-selectedEventIndex">-</code><br>
+        runtime-numEvents : <code id="runtime-numEvents">-</code><br>
+        runtime-offset : <code id="runtime-offset">-</code><br>
+        runtime-plannedStart : <code id="runtime-plannedStart">-</code><br>
+        runtime-plannedEnd : <code id="runtime-plannedEnd">-</code><br>
+        runtime-actualStart : <code id="runtime-actualStart">-</code><br>
+        runtime-expectedEnd : <code id="runtime-expectedEnd">-</code>
+      </details>
+      <details class="card" open>
+        <summary>
+          auxtimer1-
+          <div>
+            <span class="description">tagID : value - Description</span>Aux timer 1 data
+          </div>
+        </summary>
+        auxtimer1-duration : <code id="auxtimer1-duration">-</code><br>
+        auxtimer1-current : <code id="auxtimer1-current">-</code><br>
+        auxtimer1-playback : <code id="auxtimer1-playback">-</code><br>
+        auxtimer1-direction : <code id="auxtimer1-direction">-</code><br>
       </details>
 
       <details class="card" open>
         <summary>
-          Public event now
+          currentBlock-
           <div>
-            <span class="description">Description</span>Closest public event
+            <span class="description">tagID : value - Description</span>Current Block data
           </div>
         </summary>
-        <code id="public-event-now">-</code>
+        currentBlock-title : <code id="currentBlock-title">-</code><br>
+        currentBlock-type : <code id="currentBlock-type">-</code><br>
+        currentBlock-id : <code id="currentBlock-id">-</code><br>
+        currentBlock-startedAt : <code id="currentBlock-startedAt">-</code><br>
       </details>
-
-      <details class="card" open>
-        <summary>
-          Public event next
-          <div>
-            <span class="description">Description</span>Next public event
-          </div>
-        </summary>
-        <code id="public-event-next">-</code>
-      </details>
-    </div>
-  </body>
-  <script src="./app.js" type="module"></script>
+    </body>
+  <script src="./app-ws.js" type="module"></script>
 </html>

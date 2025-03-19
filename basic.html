@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>ontime basic demo</title>
+    <style>
+      body {
+        overflow: none;
+      }
+
+      :root {
+        --barBG : rgb(100,100,100);
+        --barWarning : rgb(200, 170, 20);
+        --barDanger : rgb(180, 20, 20);
+        --barStart : 0%;
+        --barEnd : 0%;
+        --barProgress: 0%;
+        --eventNow-colour : transparent;
+        --eventNext-colour : transparent;
+        --publicEventNow-colour : transparent;
+        --publicEventNext-colour : transparent;
+      }
+
+      #timer-current {
+        font-family: monospace;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        line-height: 100vh;
+        font-size: 30vh;
+        text-align: center;
+        z-index:-1;
+        top: 0;
+        left: 0;
+        padding: 0;
+        margin: 0;
+      }
+
+      #clock-clock {
+        position: absolute;
+        right: 10px;
+        top: 10px;
+        font-size: 5vh;
+      }
+
+      #timer-bar {
+        position: absolute;
+        height: 10px;
+        width: 80%;
+        left: 10%;
+        bottom: 10%;
+        overflow: none;
+        border: 2px solid rgb(150,150,150);
+        border-radius: 5px;
+        background: var(--barBG);
+      }
+      #timer-bar::before {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        background: linear-gradient(270deg, var(--barDanger) 0%, var(--barDanger) var(--barEnd), var(--barWarning) var(--barEnd), var(--barWarning) var(--barStart), var(--barBG) var(--barStart), var(--barBG) 100%);
+        content: '';
+      }
+      #timer-bar::after {
+        position: absolute;
+        background: rgba(0,0,0,0.6);
+        width: var(--barProgress);
+        height: 100%;
+        content: '';
+      }
+
+    </style>
+  </head>
+
+  <!--
+To get started on your own you need to add the script line in your html file
+and then match the tags you wish to update with the corresponding ID.
+Most of the available ID names that are available can be found in the Full Template
+Note: To update the colour and progress bar you will need to add css variables.
+  -->
+  <body>
+    <h1>Basic Example Timer</h1>
+    <a href="./index.html">Full Template</a>
+    <div id="timer-current">--:--:--</div>
+    <div id="clock-clock">--:--:--</div>
+    <hr id="timer-bar"/>
+  </body>
+  <script src="./app-ws.js" type="module"></script>
+</html>
